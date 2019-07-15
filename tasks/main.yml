@@ -1,0 +1,6 @@
+- name: Create Logical volumes
+  include: create_lvs.yml
+  with_items: "{{ volumes }}"
+  when: volume.vg_name is defined
+  loop_control:
+    loop_var: volume

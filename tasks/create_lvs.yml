@@ -1,0 +1,9 @@
+- name: Create Logical volume
+  lvol:
+    vg: "{{ volume.vg_name }}"
+    lv: "{{ logical.name }}"
+    size: "{{ logical.size }}"
+  loop: "{{ volume.logicals }}"
+  when: volume.logicals is defined
+  loop_control:
+    loop_var: logical
